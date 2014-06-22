@@ -134,7 +134,7 @@ class APNsConnection(object):
         # Establish an SSL connection
 
         # Fallback for socket timeout.
-        for i in xrange(3):
+        for i in range(3):
             try:
                 self._socket = socket(AF_INET, SOCK_STREAM)
                 self._socket.settimeout(self.timeout)
@@ -146,11 +146,11 @@ class APNsConnection(object):
                 raise
 
         # Fallback for 'SSLError: _ssl.c:489: The handshake operation timed out'
-        for i in xrange(3):
+        for i in range(3):
             try:
                 self._ssl = wrap_socket(self._socket, self.key_file, self.cert_file)
                 break
-            except SSLError, ex:
+            except SSLError as ex:
                 if ex.args[0] == SSL_ERROR_WANT_READ:
                     sys.exc_clear()
                 elif ex.args[0] == SSL_ERROR_WANT_WRITE:

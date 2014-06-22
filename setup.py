@@ -10,5 +10,5 @@ setup(
     py_modules = ['apns'],
     scripts = ['apns-send'],
     url = 'http://www.goosoftware.co.uk/',
-    version = '1.1.2',
+    version = '1.2.0',
 )
