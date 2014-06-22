@@ -309,7 +309,7 @@ class FeedbackConnection(APNsConnection):
         BUF_SIZE = 4096
         while 1:
             data = self.read(BUF_SIZE)
-            yield data
+            yield str(data)
             if not data:
                 break
 
